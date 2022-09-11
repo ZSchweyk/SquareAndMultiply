@@ -4,12 +4,14 @@ def exp(num, e):
     result = 1
     bin_rep = bin(e)[2:]
     for i, char in enumerate(bin_rep):
+        print(f"Processing bit {i+1}/{len(bin_rep)}")
         if i == 0 and char == '1':
             result *= num
         elif char == '1':
             result = (result ** 2) * num
         elif char == '0':
             result **= 2
+        print("Finished")
     return result
 
 
@@ -29,3 +31,5 @@ def exp_steps(e):
 def square_and_multiply_efficiency(e):
     return exp_steps(e) / (e - 1)
 
+
+print(exp(2, 641111))
